@@ -8,6 +8,7 @@ namespace MovieTicket
         {
             int age = 30;
             float price = 0.0f;
+            bool hasUniversityCard = true;
 
             if (age >= 0 && age <= 5)
             {
@@ -25,7 +26,19 @@ namespace MovieTicket
             {
                 price = 9.99f;
             }
+
+            DateTime today = DateTime.Today;
+            if (today.DayOfWeek == DayOfWeek.Tuesday)
+            {
+                price = price / 2;
+            }
+
+            if (hasUniversityCard && age >= 18)
+            {
+                price = price - 1;
+            }
             Console.WriteLine("Price is " + price);
+
 
         }
     }
